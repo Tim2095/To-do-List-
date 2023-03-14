@@ -2,7 +2,7 @@
   <div class="home-page__container">
     <div class="home-page__content">
       <div class="logo">
-        <img src="../assets/img/Logo.png" alt="" />
+        <img src="../assets/img/Logo.png" alt="main-logo" />
       </div>
       <div class="home-heading">
         <h1>Make successful</h1>
