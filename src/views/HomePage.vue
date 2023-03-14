@@ -63,6 +63,10 @@
       text-align: center;
       margin-top: 4.4rem;
       color: #c1cc41;
+      font-family: 'Montserrat';
+      font-weight: 500;
+      font-size: 1.5rem;
+      line-height: 1.5;
       margin-bottom: 6.2rem;
       p {
         span {
