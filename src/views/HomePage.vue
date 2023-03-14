@@ -63,6 +63,7 @@
       text-align: center;
       margin-top: 4.4rem;
       color: #c1cc41;
+      margin-bottom: 6.2rem;
       p {
         span {
           display: block;
@@ -80,7 +81,6 @@
         font-size: 2.4rem;
         color: #ffffff;
         text-align: center;
-        margin-top: 6.2rem;
         cursor: pointer;
       }
     }
