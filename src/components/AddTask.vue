@@ -80,6 +80,10 @@ import TaskButton from '../ui/TaskButton.vue'
       font-size: 1.6rem;
     }
 
+    input[type=date] {
+      width: 100%;
+    }
+
     .task-btn-actions {
       display: flex;
       justify-content: space-between;
