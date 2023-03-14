@@ -82,6 +82,7 @@ import TaskButton from '../ui/TaskButton.vue'
 
     input[type=date] {
       width: 100%;
+      background: transparent;
     }
 
     .task-btn-actions {
