@@ -31,7 +31,7 @@
       rgba(221, 6, 7, 0.720854) 11.25%,
       #1593af 68.67%
     );
-    height: 120vh;  
+    height: 100vh;  
 
     .home-page__content {
       max-width: 312px;
