@@ -77,6 +77,7 @@ import TaskButton from '../ui/TaskButton.vue'
       height: 4rem;
       border: 1px solid rgba(26, 184, 219, 0.85);
       border-radius: 10px;
+      font-size: 1.6rem;
     }
 
     .task-btn-actions {
