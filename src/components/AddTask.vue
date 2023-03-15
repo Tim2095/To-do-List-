@@ -1,7 +1,9 @@
 <template>
   <div class="add-task__container">
     <div class="add-task__header">
-      <h3>add task</h3>
+      <router-link to="/allTasks">
+        <h3>your tasks</h3>
+      </router-link>
       <router-link to="/">
         <img src="../assets/img/Vector.png" alt="close-task" />
       </router-link>
@@ -17,11 +19,11 @@
       </div>
       <div class="description-content">
         <label for="description">Description</label>
-        <input type="text" id="description"  placeholder="Enter task description"/>
+        <input type="text" id="description" placeholder="Enter task description" />
       </div>
       <div class="endingDate-content">
         <label for="endingDate">Date end</label>
-        <input type="date" id="endingDate"/>
+        <input type="date" id="endingDate" />
       </div>
       <div class="task-btn-actions">
         <task-button bgr="add">Add</task-button>
@@ -48,7 +50,7 @@ import TaskButton from '../ui/TaskButton.vue'
     align-items: center;
 
     h3 {
-      color: #1AB8DB;
+      color: #1ab8db;
       font-size: 1.6rem;
       font-weight: 700;
       font-family: 'Montserrat';
@@ -91,7 +93,7 @@ import TaskButton from '../ui/TaskButton.vue'
       padding-left: 1rem;
     }
 
-    input[type=date] {
+    input[type='date'] {
       width: 100%;
       background: transparent;
     }
