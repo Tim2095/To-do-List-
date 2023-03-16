@@ -11,7 +11,7 @@ const props = defineProps(['btnName', 'bgr'])
 </script>
 
 <style lang="scss" scoped>
-@import '../assets/fonts';
+
 .add {
   background: #1AB8DB;
   padding: 1.1rem 3.6rem;

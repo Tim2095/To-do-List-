@@ -22,7 +22,6 @@
 
 
 <style lang="scss" scoped>
-@import '../assets/fonts';
 @media (min-width: 320px) {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
   .home-page__container {
