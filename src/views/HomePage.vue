@@ -20,6 +20,7 @@
   </div>
 </template>
 
+
 <style lang="scss" scoped>
 @import '../assets/fonts';
 @media (min-width: 320px) {
@@ -31,13 +32,12 @@
       rgba(221, 6, 7, 0.720854) 11.25%,
       #1593af 68.67%
     );
-    height: 100vh;  
+    height: 100vh;
 
     .home-page__content {
       max-width: 312px;
       background: #222222;
       margin: 0 auto;
-    
 
       .logo {
         display: flex;

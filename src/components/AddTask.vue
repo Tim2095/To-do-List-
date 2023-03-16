@@ -2,7 +2,7 @@
   <div class="add-task__container">
     <div class="add-task__header">
       <router-link to="/allTasks">
-        <h3>your tasks</h3>
+        <h3>my tasks</h3>
       </router-link>
       <router-link to="/">
         <img src="../assets/img/Vector.png" alt="close-task" />
@@ -15,18 +15,18 @@
     <form>
       <div class="title-content">
         <label for="title">Title</label>
-        <input type="text" id="title" placeholder="Enter task title" />
+        <input type="text" id="title" placeholder="Enter task title" v-model="taskTitle" />
       </div>
       <div class="description-content">
         <label for="description">Description</label>
-        <input type="text" id="description" placeholder="Enter task description" />
+        <input type="text" id="description" placeholder="Enter task description" v-model="taskDesc" />
       </div>
       <div class="endingDate-content">
         <label for="endingDate">Date end</label>
-        <input type="date" id="endingDate" />
+        <input type="date" id="endingDate" v-model="taskDate" />
       </div>
       <div class="task-btn-actions">
-        <task-button bgr="add">Add</task-button>
+        <task-button bgr="add" @click.prevent="createTask">Add</task-button>
         <task-button bgr="cancel">Cancel</task-button>
       </div>
     </form>
@@ -35,6 +35,24 @@
 
 <script setup>
 import TaskButton from '../ui/TaskButton.vue'
+import { useTaskStore } from '../stores/task.js'
+import { ref } from 'vue';
+
+const taskTitle = ref('')
+const taskDesc = ref('')
+const taskDate = ref('')
+
+const store = useTaskStore()
+
+const createTask = () => {
+  const task = {
+    title: taskDesc.value,
+    description: taskDesc.value,
+    date: taskDate.value,
+  }
+  store.tasks.push(task)
+  console.log(store.tasks)
+}
 </script>
 
 <style lang="scss" scoped>
