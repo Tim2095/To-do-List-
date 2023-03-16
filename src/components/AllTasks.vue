@@ -17,8 +17,8 @@
     </div>
     <ul class="tasks-content__container cnt" v-for="task in tasks" :key="task.title">
       <div class="task-content">
-        <li>{{ task.date }}</li>
-        <li class="ti">{{ task.title }}</li>
+        <li class="task-date">{{ task.date }}</li>
+        <li class="task-name">{{ task.title }}</li>
       </div>
     </ul>
   </div>
@@ -112,8 +112,18 @@ const tasks = store.tasks
     width: 70%;
     margin: 0 auto;
     
-    .ti {
+    .task-name {
       justify-self: end;
+      color: rgba(0, 0, 0, 0.9);
+      font-size: 1.6rem;
+      font-weight: 400;
+      font-family: 'Roboto';
+    }
+    .task-date {
+      color: rgba(34, 34, 34, 0.7);
+      font-size: 1.6rem;
+      font-family: 'Montserrat';
+      font-weight: 400;
     }
   }
 }

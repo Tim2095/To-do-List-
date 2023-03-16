@@ -51,7 +51,7 @@ const store = useTaskStore()
 
 const createTask = () => {
   const task = {
-    title: taskDesc.value,
+    title: taskTitle.value,
     description: taskDesc.value,
     date: taskDate.value
   }
