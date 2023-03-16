@@ -5,16 +5,39 @@
         <img src="../assets/img/Logo.png" alt="logo" />
       </div>
     </header>
-    <div class="tasks-amount__container">
+    <div class="tasks-amount__container cnt">
       <h4 class="task-amount">8 tasks</h4>
-      <h4 class="view-all">View all</h4>
+      <button class="view-all">View all</button>
     </div>
+    <div class="tasks-sort__names cnt">
+      <div class="tags-content">
+        <p>Date</p>
+        <p>Task</p>
+      </div>
+    </div>
+    <ul class="tasks-content__container cnt" v-for="task in tasks" :key="task.title">
+      <div class="task-content">
+        <li>{{ task.date }}</li>
+        <li class="ti">{{ task.title }}</li>
+      </div>
+    </ul>
   </div>
 </template>
+
+<script setup>
+import { useTaskStore } from '../stores/task'
+const store = useTaskStore()
+const tasks = store.tasks
+</script>
 
 <style lang="scss" scoped>
 @media (min-width: 320px) {
   /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+
+  .cnt {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
   .all-tasks__header {
     background: #222222;
     color: #fff;
@@ -33,6 +56,9 @@
     justify-content: space-between;
     padding-left: 2.6rem;
     padding-right: 2.6rem;
+    padding-bottom: 1.3rem;
+    border-bottom: 2px solid black;
+    border-color: #d9d9d9;
 
     h4 {
       font-family: 'Montserrat';
@@ -47,7 +73,47 @@
     .view-all {
       font-size: 1.5rem;
       font-weight: 600;
-      color: #1AB8DB;
+      color: #1ab8db;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+  }
+
+  .tasks-sort__names {
+    background: #d9d9d9;
+    margin-top: 0.8rem;
+    display: flex;
+    align-items: center;
+    padding-top: 1.3rem;
+    padding-bottom: 1.3rem;
+    border-radius: 4px;
+    color: #000000;
+    font-weight: 400;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+
+    .tags-content {
+      width: 70%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .tasks-content__container {
+    background: #EEEEEE;
+    margin-bottom: 0.8rem;
+    padding: 1.5rem 0 1.5rem 0;
+  }
+  .task-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 70%;
+    margin: 0 auto;
+    
+    .ti {
+      justify-self: end;
     }
   }
 }
