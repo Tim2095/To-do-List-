@@ -11,7 +11,7 @@
     </div>
     <div class="tasks-sort__names cnt">
       <div class="tags-content">
-        <p>Date</p>
+        <p>Ending Date</p>
         <p>Task</p>
       </div>
     </div>
@@ -19,6 +19,7 @@
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
         <li class="task-name">{{ task.title }}</li>
+        <button class="btn-deleate" @click="deleteTask(task.title)">Delete</button>
       </div>
     </ul>
   </div>
@@ -33,6 +34,10 @@ const tasks = store.tasks
 const taskAmount = computed(function() {
   return tasks.length
 })
+
+const deleteTask = (taskName) => {
+  store.tasks.splice(store.tasks.filter(task => task.title === taskName), 1)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -110,12 +115,14 @@ const taskAmount = computed(function() {
     background: #EEEEEE;
     margin-bottom: 0.8rem;
     padding: 1.5rem 0 1.5rem 0;
+    position: relative;
   }
   .task-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 70%;
     margin: 0 auto;
+   
     
     .task-name {
       justify-self: end;
@@ -129,6 +136,20 @@ const taskAmount = computed(function() {
       font-size: 1.6rem;
       font-family: 'Montserrat';
       font-weight: 400;
+    }
+
+    .btn-deleate {
+      position: absolute;
+      right: 1%;
+      top: 50%;
+      cursor: pointer;
+      padding: 5px 10px;
+      transform: translate(-1%, -50%);
+      background: #1ab8db;
+      border: none;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
     }
   }
 }
