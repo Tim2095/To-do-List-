@@ -19,9 +19,7 @@
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
         <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li>
-        <div class="buton-delete__cnt">
-          <button class="btn-deleate" @click="deleteTask(task.title)">Delete</button>
-        </div>
+        <button class="delete-btn" @click="deleteTask(task.title)">Delete</button>
       </div>
     </ul>
   </div>
@@ -120,13 +118,16 @@ const deleteTask = (taskName) => {
     background: #eeeeee;
     margin-bottom: 0.8rem;
     padding: 1.5rem 0 1.5rem 0;
+    position: relative;
   }
   .task-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr 0.5fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     width: 70%;
     margin: 0 auto;
+   
+    
 
     .task-name {
       justify-self: end;
@@ -134,6 +135,7 @@ const deleteTask = (taskName) => {
       font-size: 1.6rem;
       font-weight: 400;
       font-family: 'Roboto';
+      
     }
     .task-date {
       color: rgba(34, 34, 34, 0.7);
@@ -141,21 +143,13 @@ const deleteTask = (taskName) => {
       font-family: 'Montserrat';
       font-weight: 400;
     }
+  }
 
-    .buton-delete__cnt {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      .btn-deleate {
-        margin-left: 2rem;
-        cursor: pointer;
-        padding: 5px 10px;
-        background: #1ab8db;
-        border: none;
-        border-radius: 10px;
-        cursor: pointer;
-      }
-    }
+  .delete-btn {
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    right: 0;
   }
 }
 </style>
