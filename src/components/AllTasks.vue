@@ -6,7 +6,7 @@
       </div>
     </header>
     <div class="tasks-amount__container cnt">
-      <h4 class="task-amount">8 tasks</h4>
+      <h4 class="task-amount">{{ taskAmount }} tasks</h4>
       <button class="view-all">View all</button>
     </div>
     <div class="tasks-sort__names cnt">
@@ -26,8 +26,13 @@
 
 <script setup>
 import { useTaskStore } from '../stores/task'
+import { computed } from 'vue';
 const store = useTaskStore()
 const tasks = store.tasks
+
+const taskAmount = computed(function() {
+  return tasks.length
+})
 </script>
 
 <style lang="scss" scoped>
