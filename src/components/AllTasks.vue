@@ -18,8 +18,10 @@
     <ul class="tasks-content__container cnt" v-for="task in tasks" :key="task.title">
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
-        <li class="task-name">{{ task.title }}</li>
-        <button class="btn-deleate" @click="deleteTask(task.title)">Delete</button>
+        <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li>
+        <div class="buton-delete__cnt">
+          <button class="btn-deleate" @click="deleteTask(task.title)">Delete</button>
+        </div>
       </div>
     </ul>
   </div>
@@ -27,16 +29,19 @@
 
 <script setup>
 import { useTaskStore } from '../stores/task'
-import { computed } from 'vue';
+import { computed } from 'vue'
 const store = useTaskStore()
 const tasks = store.tasks
 
-const taskAmount = computed(function() {
+const taskAmount = computed(function () {
   return tasks.length
 })
 
 const deleteTask = (taskName) => {
-  store.tasks.splice(store.tasks.filter(task => task.title === taskName), 1)
+  store.tasks.splice(
+    store.tasks.filter((task) => task.title === taskName),
+    1
+  )
 }
 </script>
 
@@ -112,18 +117,17 @@ const deleteTask = (taskName) => {
   }
 
   .tasks-content__container {
-    background: #EEEEEE;
+    background: #eeeeee;
     margin-bottom: 0.8rem;
     padding: 1.5rem 0 1.5rem 0;
-    position: relative;
   }
   .task-content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 0.5fr;
+    align-items: center;
     width: 70%;
     margin: 0 auto;
-   
-    
+
     .task-name {
       justify-self: end;
       color: rgba(0, 0, 0, 0.9);
@@ -138,18 +142,19 @@ const deleteTask = (taskName) => {
       font-weight: 400;
     }
 
-    .btn-deleate {
-      position: absolute;
-      right: 1%;
-      top: 50%;
-      cursor: pointer;
-      padding: 5px 10px;
-      transform: translate(-1%, -50%);
-      background: #1ab8db;
-      border: none;
-      border-radius: 10px;
-      text-align: center;
-      cursor: pointer;
+    .buton-delete__cnt {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      .btn-deleate {
+        margin-left: 2rem;
+        cursor: pointer;
+        padding: 5px 10px;
+        background: #1ab8db;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
     }
   }
 }
