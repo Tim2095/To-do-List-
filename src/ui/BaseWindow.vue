@@ -47,6 +47,7 @@ moveToAllTasks()
     .action-content__title {
       color: #fff;
       text-align: center;
+      font-size: 2rem;
     }
   }
 }
