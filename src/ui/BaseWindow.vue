@@ -16,12 +16,12 @@
 <script setup>
 import router from '../router/index.js'
 
-const moveToAllTasks = () => {
+const moveToAllTask = () => {
   setTimeout(() => {
     router.push('/allTasks')
   }, 3000)
 }
-moveToAllTasks()
+moveToAllTask()
 </script>
 
 <style lang="scss" scoped>
