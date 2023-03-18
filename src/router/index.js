@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import AddTask from '../components/AddTask.vue'
 import HomePage from '../views/HomePage.vue'
 import AllTasks from '../components/AllTasks.vue'
+import BaseWindow from '../ui/BaseWindow.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,6 +17,9 @@ const router = createRouter({
     },
     {
       path: '/allTasks', component: AllTasks
+    },
+    {
+      path: '/taskAction', component: BaseWindow
     }
   ]
 })

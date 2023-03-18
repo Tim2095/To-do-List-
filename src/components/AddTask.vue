@@ -1,52 +1,56 @@
 <template>
-  <div class="add-task__container">
-    <div class="add-task__header">
-      <router-link to="/allTasks">
-        <h3>my tasks</h3>
-      </router-link>
-      <router-link to="/">
-        <img src="../assets/img/Vector.png" alt="close-task" />
-      </router-link>
-    </div>
-    <div class="add-task__logo">
-      <img src="../assets/img/Logo.png" alt="logo" />
-    </div>
+  <div>
+    <base-window v-if="taskAdded">The task is added</base-window>
+    <div class="add-task__container" v-if="!taskAdded">
+      <div class="add-task__header">
+        <router-link to="/allTasks">
+          <h3>my tasks</h3>
+        </router-link>
+        <router-link to="/">
+          <img src="../assets/img/Vector.png" alt="close-task" />
+        </router-link>
+      </div>
+      <div class="add-task__logo">
+        <img src="../assets/img/Logo.png" alt="logo" />
+      </div>
 
-    <form>
-      <div class="title-content">
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="Enter task title" v-model="taskTitle" />
-      </div>
-      <div class="description-content">
-        <label for="description">Description</label>
-        <input
-          type="text"
-          id="description"
-          placeholder="Enter task description"
-          v-model="taskDesc"
-        />
-      </div>
-      <div class="endingDate-content">
-        <label for="endingDate">Date end</label>
-        <input type="date" id="endingDate" v-model="taskDate" />
-      </div>
-      <div class="task-btn-actions">
-        <task-button bgr="add" @click.prevent="createTask">Add</task-button>
-        <task-button bgr="cancel">Cancel</task-button>
-      </div>
-    </form>
+      <form>
+        <div class="title-content">
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Enter task title" v-model="taskTitle" />
+        </div>
+        <div class="description-content">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            id="description"
+            placeholder="Enter task description"
+            v-model="taskDesc"
+          />
+        </div>
+        <div class="endingDate-content">
+          <label for="endingDate">Date end</label>
+          <input type="date" id="endingDate" v-model="taskDate" />
+        </div>
+        <div class="task-btn-actions">
+          <task-button bgr="add" @click.prevent="createTask">Add</task-button>
+          <task-button bgr="cancel">Cancel</task-button>
+        </div>
+      </form>
+    </div>
   </div>
 </template>
 
 <script setup>
 import TaskButton from '../ui/TaskButton.vue'
 import { useTaskStore } from '../stores/task.js'
+import BaseWindow from '../ui/BaseWindow.vue'
 import { ref } from 'vue'
 
 const taskTitle = ref('')
 const taskDesc = ref('')
 const taskDate = ref('')
-
+const taskAdded = ref(false)
 const store = useTaskStore()
 
 const createTask = () => {
@@ -56,7 +60,7 @@ const createTask = () => {
     date: taskDate.value
   }
   store.tasks.push(task)
-  console.log(store.tasks)
+  taskAdded.value = true
 }
 </script>
 
