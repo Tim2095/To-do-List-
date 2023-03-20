@@ -29,7 +29,7 @@
 import { useTaskStore } from '../stores/task'
 import { computed } from 'vue'
 const store = useTaskStore()
-const tasks = store.tasks
+const tasks = store.tasks.slice(0, 7)
 
 const taskAmount = computed(function () {
   return tasks.length
@@ -153,7 +153,6 @@ const deleteTask = (taskName) => {
     margin-left: 3rem;
     right: 1%;
     background: #1AB8DB;
-    
     border: none;
     padding: 0.5rem 1rem;
     color: #fff;
