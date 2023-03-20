@@ -135,6 +135,7 @@ const deleteTask = (taskName) => {
       font-size: 1.6rem;
       font-weight: 400;
       font-family: 'Roboto';
+      padding-right: 2rem;
       
     }
     .task-date {
@@ -149,7 +150,13 @@ const deleteTask = (taskName) => {
     position: absolute;
     top: 50%;
     transform: translate(0, -50%);
-    right: 0;
+    margin-left: 3rem;
+    right: 1%;
+    background: #1AB8DB;
+    
+    border: none;
+    padding: 0.5rem 1rem;
+    color: #fff;
   }
 }
 </style>
