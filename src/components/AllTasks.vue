@@ -133,6 +133,7 @@ const taskAmount = computed(function () {
       font-weight: 400;
       font-family: 'Roboto';
       padding-right: 2rem;
+      text-decoration: underline;
     }
     .task-date {
       color: rgba(34, 34, 34, 0.7);
