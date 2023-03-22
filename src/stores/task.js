@@ -31,37 +31,7 @@ export const useTaskStore = defineStore('task', () => {
       title: 'home5 and to do more of course5',
       date: '01.22.1292',
       description: 'yues to do it'
-    },     
-    {
-      id: 6,
-      title: 'home6 and to do more of course5',
-      date: '01.22.1292',
-      description: 'yues to do it'
-    },   
-    {
-      id: 7,
-      title: 'home7 and to do more of course5',
-      date: '01.22.1292',
-      description: 'yues to do it'
-    },   
-    {
-      id: 8,
-      title: 'home8 and to do more of course5',
-      date: '01.22.1292',
-      description: 'yues to do it'
-    },   
-    {
-      id: 9,
-      title: 'home9 and to do more of course5',
-      date: '01.22.1292',
-      description: 'yues to do it'
-    },   
-    {
-      id: 10,
-      title: 'home10 and to do more of course5',
-      date: '01.22.1292',
-      description: 'yues to do it'
-    },   
+    },       
   ])
 
   const deleteTask = (taskName) => {

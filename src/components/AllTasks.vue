@@ -18,8 +18,8 @@
     <ul class="tasks-content__container cnt" v-for="task in tasks" :key="task.title">
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
-        <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li>
-        <li>{{ task.id }}</li>
+        <!-- <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li> -->
+        <li class="task-name">{{ task.title}}...</li>
         <button class="delete-btn" @click="store.deleteTask(task.title)">Delete</button>
       </div>
     </ul>
@@ -32,11 +32,11 @@ import { useTaskStore } from '../stores/task'
 import { computed } from 'vue'
 const store = useTaskStore()
 const tasks = ref(store.tasks)
+
+
 const taskAmount = computed(function () {
   return tasks.value.length
 })
-
-
 
 </script>
 
@@ -117,12 +117,15 @@ const taskAmount = computed(function () {
     padding: 1.5rem 0 1.5rem 0;
     position: relative;
   }
+
+
   .task-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 70%;
     margin: 0 auto;
+
 
     .task-name {
       justify-self: end;
@@ -150,6 +153,7 @@ const taskAmount = computed(function () {
     border: none;
     padding: 0.5rem 1rem;
     color: #fff;
+    cursor: pointer;
   }
 }
 </style>
