@@ -19,28 +19,25 @@
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
         <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li>
-        <button class="delete-btn" @click="deleteTask(task.title)">Delete</button>
+        <li>{{ task.id }}</li>
+        <button class="delete-btn" @click="store.deleteTask(task.title)">Delete</button>
       </div>
     </ul>
   </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
 import { useTaskStore } from '../stores/task'
 import { computed } from 'vue'
 const store = useTaskStore()
-const tasks = store.tasks.slice(0, 7)
-
+const tasks = ref(store.tasks)
 const taskAmount = computed(function () {
-  return tasks.length
+  return tasks.value.length
 })
 
-const deleteTask = (taskName) => {
-  store.tasks.splice(
-    store.tasks.filter((task) => task.title === taskName),
-    1
-  )
-}
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -126,8 +123,6 @@ const deleteTask = (taskName) => {
     align-items: center;
     width: 70%;
     margin: 0 auto;
-   
-    
 
     .task-name {
       justify-self: end;
@@ -136,7 +131,6 @@ const deleteTask = (taskName) => {
       font-weight: 400;
       font-family: 'Roboto';
       padding-right: 2rem;
-      
     }
     .task-date {
       color: rgba(34, 34, 34, 0.7);
@@ -152,7 +146,7 @@ const deleteTask = (taskName) => {
     transform: translate(0, -50%);
     margin-left: 3rem;
     right: 1%;
-    background: #1AB8DB;
+    background: #1ab8db;
     border: none;
     padding: 0.5rem 1rem;
     color: #fff;
