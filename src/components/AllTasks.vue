@@ -18,8 +18,7 @@
     <ul class="tasks-content__container cnt" v-for="task in tasks" :key="task.title">
       <div class="task-content">
         <li class="task-date">{{ task.date }}</li>
-        <!-- <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li> -->
-        <li class="task-name">{{ task.title}}...</li>
+        <li class="task-name">{{ task.title.split(' ').slice(0, 2).join(' ') }}...</li>
         <button class="delete-btn" @click="store.deleteTask(task.title)">Delete</button>
       </div>
     </ul>
